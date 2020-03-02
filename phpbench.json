@@ -1,0 +1,17 @@
+{
+    "bootstrap": "vendor/autoload.php",
+    "path": "benchmarks",
+    "progress": "blinken",
+    "reports": {
+        "custom": {
+            "extends": "aggregate",
+            "break": [
+                "set"
+            ],
+            "sort": {
+                "mean": "asc"
+            }
+        }
+    },
+    "xml_storage_path": "build/phpbench"
+}

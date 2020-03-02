@@ -1,0 +1,31 @@
+{
+    "name": "ecphp/factorials",
+    "type": "library",
+    "description": "EcPhp Demo Package",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Pol Dellaiera",
+            "email": "pol.dellaiera@protonmail.com"
+        }
+    ],
+    "require-dev": {
+        "drupol/php-conventions": "^1.6",
+        "friends-of-phpspec/phpspec-code-coverage": "^4.3",
+        "infection/infection": "^0.15.3",
+        "phpbench/phpbench": "^0.17.0",
+        "phpspec/phpspec": "^6.1"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "EcPhp\\Factorial\\": "./src/"
+        }
+    },
+    "scripts": {
+        "phpbench": "./vendor/bin/phpbench run --report=custom --progress=blinken --precision=3",
+        "phpspec": "./vendor/bin/phpspec run -v"
+    }
+}
