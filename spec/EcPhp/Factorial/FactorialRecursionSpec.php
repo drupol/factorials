@@ -11,4 +11,11 @@ class FactorialRecursionSpec extends ObjectBehavior
     {
         $this->shouldHaveType(FactorialRecursion::class);
     }
+
+    public function it_can_get_the_factorial_of_5()
+    {
+        $this
+            ->of(5)
+            ->shouldBeInt();
+    }
 }
