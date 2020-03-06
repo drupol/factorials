@@ -1,19 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EcPhp\Factorial;
 
-class Factorial
+final class Factorial
 {
-    public function of($integer)
+    public function of(int $integer): int
     {
         $factorial = 1;
 
-        foreach (range(1, $integer) as $i) {
+        for ($i = $integer; 2 <= $i; --$i) {
             $factorial *= $i;
         }
 
-        return 0 === $integer ?
-            1:
-            $factorial;
+        return $factorial;
     }
 }

@@ -1,28 +1,33 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EcPhp\Factorial;
 
-class GCD
+final class GCD
 {
     /**
      * Get the greatest common divisor.
      *
-     * @param int $x1
-     *   First number
-     * @param int $x2
-     *   Second number
+     * @param int ...$x
+     *   The numbers.
      *
      * @return int
      *   The greatest common divisor.
      */
-    public static function of($x1, $x2)
+    public static function of(...$x): int
     {
-        while (0 !== $x2) {
-            $m = $x1 % $x2;
-            $x1 = $x2;
-            $x2 = $m;
-        }
+        return array_reduce($x, [__CLASS__, 'gcd']);
+    }
 
-        return $x1;
+    /**
+     * @param int $a
+     * @param int $b
+     *
+     * @return int
+     */
+    private static function gcd($a, $b): int
+    {
+        return 0 === $b ? $a : self::gcd($b, $a % $b);
     }
 }

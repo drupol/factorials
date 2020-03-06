@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EcPhp\Factorial;
 
-class FactorialRecursion
+final class FactorialRecursion
 {
-    public function of($integer)
+    public function of(int $integer): int
     {
         return 2 > $integer ?
             1 :

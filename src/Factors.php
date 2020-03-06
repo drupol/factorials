@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EcPhp\Factorial;
 
 use Traversable;
 
-class Factors
+final class Factors
 {
     /**
      * Get all the divisors at once.
@@ -15,13 +17,9 @@ class Factors
      * @return array<int>
      *   The divisors of the number.
      */
-    public static function all($num)
+    public static function all(int $num): array
     {
-        $result = iterator_to_array(self::of($num));
-
-        ksort($result);
-
-        return $result;
+        return iterator_to_array(self::of($num));
     }
 
     /**
@@ -35,16 +33,18 @@ class Factors
      * @return Traversable<int>
      *   The divisors of the number.
      */
-    public static function of($num, $start = 1)
+    public static function of(int $num, int $start = 1)
     {
-        if (0 === $num % $start) {
-            yield $start => $start;
-
-            yield $num / $start => $num / $start;
+        if (0 !== $num % $start) {
+            return yield from self::of($num, $start + 1);
         }
 
-        if (ceil(sqrt($num)) >= $start) {
-            yield from static::of($num, $start + 1);
+        yield $start => $num / $start;
+
+        if (($start + 1 < $num) && ceil(sqrt($num)) >= $start) {
+            return yield from self::of($num, $start + 1);
         }
+
+        yield $num => 1;
     }
 }
