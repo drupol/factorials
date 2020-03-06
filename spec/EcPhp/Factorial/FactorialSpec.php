@@ -7,9 +7,11 @@ use PhpSpec\ObjectBehavior;
 
 class FactorialSpec extends ObjectBehavior
 {
-    public function it_is_initializable()
+    public function it_can_get_the_factorial_of_0()
     {
-        $this->shouldHaveType(Factorial::class);
+        $this
+            ->of(0)
+            ->shouldReturn(1);
     }
 
     public function it_can_get_the_factorial_of_5()
@@ -17,5 +19,10 @@ class FactorialSpec extends ObjectBehavior
         $this
             ->of(5)
             ->shouldBeInt();
+    }
+
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(Factorial::class);
     }
 }
