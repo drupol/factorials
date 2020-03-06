@@ -12,6 +12,8 @@ class Factorial
             $factorial *= $i;
         }
 
-        return $factorial;
+        return 0 === $integer ?
+            1:
+            $factorial;
     }
 }
