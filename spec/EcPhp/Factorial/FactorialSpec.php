@@ -14,13 +14,6 @@ class FactorialSpec extends ObjectBehavior
             ->shouldReturn(1);
     }
 
-    public function it_can_get_the_factorial_of_1()
-    {
-        $this
-            ->of(1)
-            ->shouldReturn(1);
-    }
-
     public function it_can_get_the_factorial_of_5()
     {
         $this
