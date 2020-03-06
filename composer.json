@@ -24,6 +24,11 @@
             "EcPhp\\Factorial\\": "./src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\EcPhp\\Factorial\\": "./tests/src/"
+        }
+    },
     "scripts": {
         "phpbench": "./vendor/bin/phpbench run --report=custom --progress=blinken --precision=3",
         "phpspec": "./vendor/bin/phpspec run -v"
