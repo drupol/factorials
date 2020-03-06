@@ -9,8 +9,8 @@ class GCDSpec extends ObjectBehavior
 {
     public function it_is_able_to_get_the_gcd_of_150_and_120()
     {
-        $this::of(150,120)
-            ->shouldBeInt();
+        $this::of(150, 120)
+            ->shouldReturn(30);
     }
 
     public function it_is_initializable()
