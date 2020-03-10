@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace spec\EcPhp\Factorial;
 
 use EcPhp\Factorial\Factorial;
